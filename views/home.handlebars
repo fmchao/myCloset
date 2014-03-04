@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82912713-1',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
+    
     <meta charset="utf-8">
     <title>Home</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -20,14 +37,7 @@
     <link href="css/bootstrap-responsive.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Dosis:600' rel='stylesheet' type='text/css'>
     <link href='http://fonts.googleapis.com/css?family=Homenaje' rel='stylesheet' type='text/css'>
-          <script>
-        function goBack()
-        {
-          console.log("error");
-        ga('send', 'event', 'back', 'click');
-        //window.history.back()
-        }
-        </script>
+
   </head>
 
   <body>
@@ -42,7 +52,7 @@
         <img id="menu" src="img/glyphicons_114_list.png">
         </button>
           <ul class="dropdown-menu pull-right setbackground" role="menu" aria-labelledby="dropdownMenu">
-            <li class="rightMargin"><a tabindex="-1" href="/settings" onclick="goSettings()"><img id="setting" src="img/glyphicons_136_cogwheel.png" class="rightMargin" >SETTINGS</a></li>
+            <li class="rightMargin"><a tabindex="-1" onclick="goSettings()"><img id="setting" src="img/glyphicons_136_cogwheel.png" class="rightMargin" >SETTINGS</a></li>
             <li class="divider"></li>
             <li class="rightMargin"><a tabindex="-1" href="/" onclick="logout2()"><img id="logout" src="img/glyphicons_388_exit.png" class="rightMargin">LOG OUT</a></li>
            </ul>
@@ -85,8 +95,8 @@
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 
-  ga('create', 'UA-48586850-1', 'mycloset.herokuapp.com');
-  //ga('create', 'UA-48586850-1', {'cookieDomain': 'none'});
+  //ga('create', 'UA-48586850-1', 'mycloset.herokuapp.com');
+  ga('create', 'UA-48586850-1', {'cookieDomain': 'none'});
   //ga('create', 'UA-48586850-1', {'home': 'click'});
   ga('send', 'pageview');
 
@@ -103,12 +113,11 @@
 
   function goSettings() {
     console.log("setting clicked");
-    ga('send', 'event', 'settings', 'click');
-    //, {'hitCallback':
-     // function() {
-        //this.href = "/settings";
-      //}
-   // });
+    ga('send', 'event', 'settings', 'click', {'hitCallback':
+      function() {
+        window.location.href = "/settings";
+      }
+    });
   };
 
 </script>

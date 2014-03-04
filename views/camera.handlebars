@@ -1,6 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+
+<!-- Google Analytics Content Experiment code -->
+<script>function utmx_section(){}function utmx(){}(function(){var
+k='82912713-1',d=document,l=d.location,c=d.cookie;
+if(l.search.indexOf('utm_expid='+k)>0)return;
+function f(n){if(c){var i=c.indexOf(n+'=');if(i>-1){var j=c.
+indexOf(';',i);return escape(c.substring(i+n.length+1,j<0?c.
+length:j))}}}var x=f('__utmx'),xx=f('__utmxx'),h=l.hash;d.write(
+'<sc'+'ript src="'+'http'+(l.protocol=='https:'?'s://ssl':
+'://www')+'.google-analytics.com/ga_exp.js?'+'utmxkey='+k+
+'&utmx='+(x?x:'')+'&utmxx='+(xx?xx:'')+'&utmxtime='+new Date().
+valueOf()+(h?'&utmxhash='+escape(h.substr(1)):'')+
+'" type="text/javascript" charset="utf-8"><\/sc'+'ript>')})();
+</script><script>utmx('url','A/B');</script>
+<!-- End of Google Analytics Content Experiment code -->
+
+
     <meta charset="utf-8">
     <title>Camera</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -23,12 +40,6 @@
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jquery/1/jquery.min.js"></script>
     <script class="jsbin" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.8.0/jquery-ui.min.js"></script>
 
-     <script>
-function goBack()
-  {
-  window.history.back()
-  }
-</script>
   </head>
 
   <body>
@@ -44,7 +55,7 @@ function goBack()
             <img id="menu" src="img/glyphicons_114_list.png">
             </button>
               <ul class="dropdown-menu pull-right setbackground" role="menu" aria-labelledby="dropdownMenu">
-                <li class="rightMargin home"><a tabindex="-1" href="/home"><img id="setting" src="img/glyphicons_020_home.png" class="rightMargin">HOME</a></li>
+                <li class="rightMargin home"><a tabindex="-1" onclick="goHome()"><img id="setting" src="img/glyphicons_020_home.png" class="rightMargin">HOME</a></li>
                 <li class="divider"></li>
                 <li class="rightMargin"><a tabindex="-1" href="/settings"><img id="setting" src="img/glyphicons_136_cogwheel.png" class="rightMargin">SETTINGS</a></li>
                 <li class="divider"></li>
@@ -206,10 +217,31 @@ conesole.log(filesToUpload);
   })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
 
 
-  //ga('create', 'UA-48586850-1', 'mycloset.herokuapp.com');
-  ga('create', 'UA-48586850-1', 'cookieDomain': 'none');
+  ga('create', 'UA-48586850-1', 'mycloset.herokuapp.com');
+  //ga('create', 'UA-48586850-1', {'cookieDomain': 'none'});
   //ga('create', 'UA-48586850-1', {'home': 'click'});
   ga('send', 'pageview');
+
+        function goBack()
+        {
+          console.log("error");
+        ga('send', 'event', 'back', 'click', {'hitCallback': 
+          function() {
+            window.history.back();
+          }
+        });
+        //window.history.back();
+        };
+
+        function goHome() {
+          console.log("home clicked");
+          ga('send', 'event', 'home', 'click', {'hitCallback':
+            function() {
+            window.location.href = "/home";
+          }
+        });
+      };
+
 
 
 </script>
