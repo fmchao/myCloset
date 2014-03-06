@@ -66,7 +66,7 @@
   <br>
   <p>Hint: If you want to retake a picture or upload a different picture, just push the 'Take Picture' button again</p>
 
-  <input class="btn btn-color" id="whysospecial"  type="text" value="Put into Closet!" data-action="upload-to-imgur">
+  <input class="btn btn-color" id="whysospecial"  type="button" value="Put into Closet!" data-action="upload-to-imgur">
   <p id="filler3"></p>
 
   </form>
@@ -115,7 +115,6 @@ $('input[data-action=upload-to-imgur]').click(function upload(e){
         fd.append("image", file); // Append the file // or here
      //   fd.append('Authorization', 'Client-ID 8cefd45719a1d64');//or here
 
-//	console.log("hi me judy <3");
         var xhr = new XMLHttpRequest(); // Create the XHR (Cross-Domain XHR FTW!!!) Thank you sooooo much imgur.com
 
 	console.log(xhr);
@@ -136,7 +135,6 @@ $('input[data-action=upload-to-imgur]').click(function upload(e){
         document.body.className = "uploaded";
 	}
 	// or here even
-        // Ok, I don't handle the errors. An exercice for the reader.
 
         /* And now, we send the formdata */
         xhr.send(fd);
